@@ -1,6 +1,6 @@
-import { MdArrowBack } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { Contant } from "./styles";
+import { MdArrowBack } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { Contant } from './styles';
 
 interface IPageTitleProps {
     item: string;
