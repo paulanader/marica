@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { Button, ImageLink } from "./styles";
+import { Button, ImageLink } from './styles';
 
 interface IHomeCardProps {
     image: any;
@@ -18,7 +18,7 @@ export const HomeCard: React.FC<IHomeCardProps> = ({
     <div className="col d-flex">
         <div className="card text-center border-0 align-self-stretch w-100">
             <ImageLink to={page} className="fs-1 text-decoration-none">
-                {" "}
+                {' '}
                 {image}
             </ImageLink>
             <div className="card-body">
@@ -28,9 +28,7 @@ export const HomeCard: React.FC<IHomeCardProps> = ({
                     </Link>
                 </h1>
                 <p className="card-text pb-4 text-muted">{description}</p>
-                <Button type="button" >
-                    Acessar
-                </Button>
+                <Button type="button">Acessar</Button>
             </div>
         </div>
     </div>
