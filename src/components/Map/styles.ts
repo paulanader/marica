@@ -1,12 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Radius = styled.form`
+export const Radius = styled.div`
     border-radius: 50px;
-    padding: 0px 20px 0px 20px;
-    color: var(--white);
     background: var(--primary);
-
-    button {
-        border: none;
-    }
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
 `;

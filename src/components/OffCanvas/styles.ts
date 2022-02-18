@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
     text-decoration: none;
@@ -15,20 +15,11 @@ export const Container = styled.div`
         color: var(--white);
         border: none;
     }
-
-    li {
-        list-style-type: none;
-        text-decoration: none;
-
-        & + li {
-            margin-top: 20px;
-        }
-    }
 `;
 
 export const Content = styled.div`
     text-decoration: none;
-    background: rgb(51, 51, 51, 0.7);
+    background: rgb(51, 51, 51, 0.9);
     list-style-type: none;
 
     a {
@@ -36,5 +27,15 @@ export const Content = styled.div`
         text-decoration: none;
         font-size: 13px;
         color: var(--white);
+    }
+
+    li {
+        border-bottom: 0.5px solid rgb(255, 255, 255, 0.3);
+        list-style-type: none;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        margin-top: 15px;
     }
 `;

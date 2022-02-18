@@ -1,5 +1,5 @@
 export type CategoryType = {
     id: number;
-    label:string;
+    label: string;
     count?: number;
-}
+};

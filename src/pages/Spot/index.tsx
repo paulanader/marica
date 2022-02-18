@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Categories } from '../../components/Categories';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
+import { Information } from '../../components/Information';
 import { Main } from '../../components/Main';
 import { PageTitle } from '../../components/PageTitle';
 import { useSpots } from '../../hooks/SpotProvider';
@@ -40,6 +41,11 @@ export const Spot: React.FC = () => {
                                             {spot.descricao_t}
                                         </p>
                                     </div>
+                                    <Information
+                                        title="Sobre"
+                                        item={spot.addresses}
+                                        phone={spot.phones}
+                                    />
                                 </>
                             )}
                         </div>

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import { Button, ImageLink } from './styles';
+import { Button, DescriptionStyles, ImageLink } from './styles';
 
 interface IHomeCardProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: any;
     title: string;
     description: string;
@@ -21,15 +22,17 @@ export const HomeCard: React.FC<IHomeCardProps> = ({
                 {' '}
                 {image}
             </ImageLink>
-            <div className="card-body">
+            <DescriptionStyles className="card-body">
                 <h1 className="card-title fs-5">
                     <Link to={page} className="text-dark text-decoration-none">
                         {title}
                     </Link>
                 </h1>
                 <p className="card-text pb-4 text-muted">{description}</p>
-                <Button type="button">Acessar</Button>
-            </div>
+                <Button type="button">
+                    <Link to={page}>Acessar</Link>
+                </Button>
+            </DescriptionStyles>
         </div>
     </div>
 );

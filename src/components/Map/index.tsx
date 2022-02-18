@@ -1,16 +1,15 @@
-import { FaMapMarkedAlt } from "react-icons/fa"
-import { Link } from "react-router-dom"
-import { Radius } from "./styles"
+import { FaMapMarkedAlt } from 'react-icons/fa';
+import { Radius } from './styles';
 
-export const Map:React.FC = () => {
+export const Map: React.FC = () => {
     return (
-        <div className="d-flex">
-        <Radius className="border text-white">
-            <Link to="/pontos-turisticos/mapa">
-                <FaMapMarkedAlt />
-                <span>Mapa</span>
-            </Link>      
-        </Radius>
-    </div>
-    )
-}
+        <div className="d-flex flex-wrap m-0 list-unstyled align-items-center">
+            <div className="text-white">
+                <Radius>
+                    <FaMapMarkedAlt />
+                    <span>Mapa</span>
+                </Radius>
+            </div>
+        </div>
+    );
+};

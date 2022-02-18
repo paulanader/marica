@@ -10,39 +10,39 @@ import {
     FaHome,
     FaMicrophoneAlt,
     FaFan,
-} from "react-icons/fa";
-import { BiRestaurant } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import { Container, Content } from "./styles";
+} from 'react-icons/fa';
+import { BiRestaurant } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+import { Container, Content } from './styles';
 
-export const OffCanvasComp = () => (
-    <Container>
-        <a
-            className="d-block mt-3 fs-5 text-white me-2 border-none"
-            data-bs-toggle="offcanvas"
-            href="#sidebar"
-            role="button"
-            aria-controls="sidebar"
-        >
-            <FaBars /> Menu
-        </a>
-        <Content
-            className="offcanvas offcanvas-start"
-            id="sidebar"
-            aria-labelledby="sidebar-label"
-        >
-            <div className="offcanvas-header">
-                <button
-                    type="button"
-                    className="btn-close btn-close-white"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                />
-            </div>
-            <div className="offcanvas-body">
-                <ul>
+export const OffCanvasComp: React.FC = () => {
+    return (
+        <Container>
+            <a
+                className="d-block mt-3 fs-5 text-white me-2 border-none"
+                data-bs-toggle="offcanvas"
+                href="#sidebar"
+                role="button"
+                aria-controls="sidebar"
+            >
+                <FaBars /> Menu
+            </a>
+            <Content
+                className="offcanvas offcanvas-start justify-content-end"
+                id="sidebar"
+                aria-labelledby="sidebar-label"
+            >
+                <div className="offcanvas-header justify-content-end">
+                    <button
+                        type="button"
+                        className="btn-close btn-close-white"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                    />
+                </div>
+                <ul className="offcanvas-body">
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link to="/" className="fs-5 text-white">
                             <FaHome /> Inicial
                         </Link>
                     </li>
@@ -106,7 +106,7 @@ export const OffCanvasComp = () => (
                         </Link>
                     </li>
                 </ul>
-            </div>
-        </Content>
-    </Container>
-);
+            </Content>
+        </Container>
+    );
+};

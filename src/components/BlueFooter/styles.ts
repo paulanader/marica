@@ -16,7 +16,7 @@ export const BlueMainFooter = styled.div`
         color: var(--light);
         font-weight: 700 bold;
         font-size: 60px;
-        margin-bottom: 1.5rem!important;
+        margin-bottom: 1.5rem !important;
         box-sizing: border-box;
         display: block;
         margin-block-start: 0.83em;
@@ -32,7 +32,7 @@ export const BlueMainFooter = styled.div`
         margin-block-end: 1em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
-    }    
+    }
 
     a {
         text-decoration: none;

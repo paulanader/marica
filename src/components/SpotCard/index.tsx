@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import { SpotType } from "../../@types/SpotType";
-import { Categories } from "../Categories";
+import { Link } from 'react-router-dom';
+import { SpotType } from '../../@types/SpotType';
+import { Categories } from '../Categories';
+import { StylesLink } from './styles';
 
 interface ISpotCardProps {
     item: SpotType;
@@ -9,14 +10,13 @@ interface ISpotCardProps {
 
 export const SpotCard: React.FC<ISpotCardProps> = ({ item, url }) => {
     return (
-        <div className="card mb-3">
+        <StylesLink className="card mb-3">
             <img className="img-responsive" src={item.capa} alt={item.nome} />
             <div className="card-body">
-                <h2 className="card-title fs-6">
-                    <Link to={url} className="text-decoration-none fw-bold">
-                        {item.nome}
-                    </Link>
-                </h2>
+                <Link to={url}>
+                    <h2 className="card-title">{item.nome}</h2>
+                </Link>
+
                 <Categories
                     categories={item.categorias}
                     url="pontos-turisticos"
@@ -24,11 +24,11 @@ export const SpotCard: React.FC<ISpotCardProps> = ({ item, url }) => {
                     text="dark"
                 />
                 <div className="text-dark">
-                    {item.enderecos.map((address) => (
+                    {item.enderecos.map(address => (
                         <p>{address.label}</p>
                     ))}
                 </div>
             </div>
-        </div>
+        </StylesLink>
     );
 };

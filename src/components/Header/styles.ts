@@ -13,7 +13,7 @@ export const MainHeader = styled.div`
     justify-content: space-between;
 
     a {
-        text-decoration: none;   
+        text-decoration: none;
         font-size: 13px;
     }
 `;

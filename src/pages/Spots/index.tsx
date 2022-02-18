@@ -38,7 +38,7 @@ export const Spots: React.FC = () => {
                             <div className="col">
                                 <PageTitle item="Pontos Turísticos" url="/" />
                             </div>
-                            <div className="d-flex col-md-6">
+                            <div className="col d-flex">
                                 <Map />
                                 <Search
                                     value={inputSearch}

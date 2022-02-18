@@ -5,4 +5,4 @@ interface IContainerProps {
 export const Container: React.FC<IContainerProps> = ({
     className,
     children,
-}) => <div className={`container ${className ?? ""}`}>{children}</div>;
+}) => <div className={`container ${className ?? ''}`}>{children}</div>;

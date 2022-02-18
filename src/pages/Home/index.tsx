@@ -36,7 +36,7 @@ export const Home: React.FC = () => (
                         image={<FaBed />}
                         title="Hotéis e Pousadas"
                         description="Saiba onde se hospedar em Maricá"
-                        page="/"
+                        page="/pontos-turisticos"
                     />
                     <HomeCard
                         image={<BiRestaurant />}

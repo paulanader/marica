@@ -5,9 +5,6 @@ export const Base = styled.div`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     background: var(--light);
-
-    padding: 0 1rem;  
-
-`
+`;

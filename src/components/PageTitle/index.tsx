@@ -13,7 +13,7 @@ export const PageTitle: React.FC<IPageTitleProps> = ({
     url,
     category,
 }) => (
-    <Contant className="d-flex align-item-center mb-4 justify-content-start">
+    <Contant className="d-flex align-item-center justify-content-start">
         <Link
             className="fs-3 text-white me-2 d-flex align-items-center"
             to={url}

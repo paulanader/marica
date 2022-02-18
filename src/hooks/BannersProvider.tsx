@@ -8,7 +8,7 @@ import {
 import { BannerType } from '../@types/BannerType';
 import Api from '../services/Api';
 
-//Aqui é definido a Interface com os tipos de dados de tudo oque seráq disponibilizado para fora do Provider
+// Aqui é definido a Interface com os tipos de dados de tudo oque seráq disponibilizado para fora do Provider
 
 interface IBannersContextProp {
     banners: BannerType[];
@@ -42,14 +42,13 @@ export const BannersProvider: React.FC = ({ children }) => {
 
     const getBanners = useCallback(async (): Promise<void> => {
         Api.get(`/banners`)
-        .then(response => {
-            setBanners(response.data);
-        })
-        .catch(() => {
-            setBanners([])
-        })
-        .finally(() => setLoading(false) );
-        
+            .then(response => {
+                setBanners(response.data);
+            })
+            .catch(() => {
+                setBanners([]);
+            })
+            .finally(() => setLoading(false));
     }, []);
 
     // Aqui são definidas objeto quais informações estarão disponíveis "para fora" do Provider
