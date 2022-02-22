@@ -43,8 +43,23 @@ export const Spot: React.FC = () => {
                                     </div>
                                     <Information
                                         title="Sobre"
-                                        item={spot.addresses}
+                                        addresses={spot.addresses}
                                         phone={spot.phones}
+                                        email={spot.email}
+                                        socialMedia={spot.redes}
+                                        openingHour={spot.horario_funcionamento}
+                                    />
+                                    <Information
+                                        title="Dicas"
+                                        tips={spot.dicas_t}
+                                    />
+                                    <Information
+                                        title="Valor de entrada"
+                                        price={spot.preco_t}
+                                    />
+                                    <Information
+                                        title="Tipos de Viajantes"
+                                        travaler={spot.viajantes}
                                     />
                                 </>
                             )}

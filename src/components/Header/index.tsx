@@ -1,4 +1,5 @@
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import maricaLogo from '../../assets/logo_conheca_marica.png';
 import { OffCanvasComp } from '../OffCanvas';
 import { MainBlue, MainHeader } from './styles';
@@ -10,7 +11,9 @@ export const Header: React.FC = () => {
                 <div>
                     <OffCanvasComp />
                 </div>
-                <img src={maricaLogo} alt="Conheça Maricá" />
+                <Link to="/">
+                    <img src={maricaLogo} alt="Conheça Maricá" />
+                </Link>
                 <div>
                     <a
                         href="https://web.facebook.com/prefeiturademarica"

@@ -43,66 +43,77 @@ export const OffCanvasComp: React.FC = () => {
                 <ul className="offcanvas-body">
                     <li>
                         <Link to="/" className="fs-5 text-white">
-                            <FaHome /> Inicial
+                            <FaHome className="me-3" />
+                            <span>Inicial</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaInfo /> Sobre a cidade
+                            <FaInfo className="me-3" />
+                            <span>Sobre a cidade</span>
                         </Link>
                     </li>
                     <li>
                         <Link
                             to="/pontos-turisticos"
-                            className="fs-5 text-white me-2"
+                            className="fs-5 text-white"
                         >
-                            <FaUmbrellaBeach /> Pontos Turístico
+                            <FaUmbrellaBeach className="me-2" />
+                            <span> Pontos Turísticos</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaBed /> Hotéis e pousadas
+                            <FaBed className="me-3" />
+                            <span>Hotéis e pousadas</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <BiRestaurant /> Bares e restaurantes
+                            <BiRestaurant className="me-3" />
+                            <span>Bares e restaurantes</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaMotorcycle /> Delivery
+                            <FaMotorcycle className="me-3" />
+                            <span>Delivery</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaStoreAlt /> Comércio Local
+                            <FaStoreAlt className="me-3" />
+                            <span>Comércio Local</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaTicketAlt /> Cupons de desconto
+                            <FaTicketAlt className="me-3" />
+                            <span>Cupons de desconto</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaHome /> Espaços para eventos
+                            <FaHome className="me-3" />
+                            <span>Espaços para eventos</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaMicrophoneAlt /> Eventos
+                            <FaMicrophoneAlt className="me-3" />
+                            <span>Eventos</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaRoute /> Roteiros turísticos
+                            <FaRoute className="me-3" />
+                            <span>Roteiros turísticos</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className="fs-5 text-white me-2">
-                            <FaFan />
-                            Artesanato
+                            <FaFan className="me-3" />
+                            <span>Artesanato</span>
                         </Link>
                     </li>
                 </ul>

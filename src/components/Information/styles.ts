@@ -15,7 +15,13 @@ export const StylesList = styled.div`
     box-sizing: border-box;
     font-size: 18px;
     color: var(--success);
-    p {
+    padding-bottom: 10px;
+
+    p,
+    td {
+        font-size: 22px;
+        padding-bottom: 10px;
+        font-size: 18px;
         color: var(--dark);
     }
 `;

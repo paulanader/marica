@@ -2,10 +2,16 @@
 import { AddressType } from './AddressType';
 import { CategoryType } from './CategoryType';
 import { PhoneType } from './PhoneType';
+import { MediaType } from './MediaType';
+import { OpeningHourType } from './OpeningHourType';
+import { TravalerType } from './TravalerType';
+import { BenefitType } from './BenefitType';
 
 export type SpotType = {
     id: number;
     nome: string;
+    email: string;
+    site: string;
     capa?: string;
     lat?: number;
     lng?: number;
@@ -15,4 +21,10 @@ export type SpotType = {
     descricao_t: string;
     phones: PhoneType[];
     addresses: AddressType[];
+    redes: MediaType[];
+    horario_funcionamento: OpeningHourType[];
+    dicas_t: string;
+    preco_t: string;
+    viajantes: TravalerType[];
+    estruturas: BenefitType[];
 };
