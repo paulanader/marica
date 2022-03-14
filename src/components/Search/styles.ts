@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Radius = styled.form`
+export const Radius = styled.div`
     border-radius: 20px;
     padding: 0px 20px 0px 20px;
     color: var(--white);

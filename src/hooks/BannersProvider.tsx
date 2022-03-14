@@ -38,17 +38,20 @@ export const useBanners = (): IBannersContextProp => {
 // Aqui são definidas as variáveis de State e as funções do Provider
 export const BannersProvider: React.FC = ({ children }) => {
     const [banners, setBanners] = useState<BannerType[]>([]);
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     const getBanners = useCallback(async (): Promise<void> => {
         Api.get(`/banners`)
+
             .then(response => {
-                setBanners(response.data);
+                setBanners(response?.data);
             })
             .catch(() => {
                 setBanners([]);
             })
-            .finally(() => setLoading(false));
+            .finally(() => {
+                setIsLoading(false);
+            });
     }, []);
 
     // Aqui são definidas objeto quais informações estarão disponíveis "para fora" do Provider

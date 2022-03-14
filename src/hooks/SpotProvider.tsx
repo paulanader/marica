@@ -15,9 +15,13 @@ interface ISpotContextProp {
     spot: SpotType | null;
     spots: SpotType[];
     categories: CategoryType[];
+    category: CategoryType | null;
+    isLoading: boolean;
     setSpot: (spot: SpotType | null) => void;
+    setCategory: (category: CategoryType) => void;
     getSpot: (id: number) => Promise<void>;
     getSpots: (search: string) => Promise<void>;
+    getSpotsByCategory: (id: number) => Promise<void>;
 }
 
 // Aqui é definido o Context (não precisa entender, é sempre exatamente assim)
@@ -44,37 +48,59 @@ export const SpotProvider: React.FC = ({ children }) => {
     const [spot, setSpot] = useState<SpotType | null>(null);
     const [spots, setSpots] = useState<SpotType[]>([]);
     const [categories, setCategories] = useState<CategoryType[]>([]);
+    const [category, setCategory] = useState<CategoryType | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const getSpots = useCallback(async (search: string): Promise<void> => {
+    const getSpots = useCallback(async (searchText = ''): Promise<void> => {
         let url = `/pontos`;
 
-        if (search.length > 0) {
-            url += `/busca?busca=${search}`;
+        setIsLoading(true);
+
+        if (searchText.length > 0) {
+            url += `/busca?busca=${searchText}`;
         }
         Api.get(url)
             .then(response => {
-                setSpots(response.data.collection);
-                setCategories(response.data?.categorias);
+                setSpots(response?.data?.collection);
+                if (response.data.categorias) {
+                    setCategories(response?.data?.categorias);
+                }
             })
             .catch(() => {
                 setSpots([]);
                 setCategories([]);
             })
-            .finally();
+            .finally(() => {
+                setIsLoading(false);
+            });
     }, []);
 
     const getSpot = useCallback(async (id: number): Promise<void> => {
         Api.get(`/pontos/${id}`)
             .then(response => {
                 setSpot(response?.data?.item);
-                setCategories(response?.data?.item);
             })
             .catch(() => {
-                setSpots([]);
-                setCategories([]);
+                setSpot(null);
             })
-            .finally();
+            .finally(() => {
+                setIsLoading(false);
+            });
     }, []);
+
+    const getSpotsByCategory = useCallback(
+        async (id: number): Promise<void> => {
+            Api.get(`/pontos/categorias/${id}`)
+                .then(response => {
+                    setSpots(response?.data?.collection);
+                })
+                .catch()
+                .finally(() => {
+                    setIsLoading(false);
+                });
+        },
+        []
+    );
 
     // Aqui são definidas objeto quais informações estarão disponíveis "para fora" do Provider
     const providerValue = useMemo(
@@ -82,11 +108,28 @@ export const SpotProvider: React.FC = ({ children }) => {
             spot,
             spots,
             categories,
+            category,
+            isLoading,
             setSpot,
+            setSpots,
+            setCategory,
             getSpot,
             getSpots,
+            getSpotsByCategory,
         }),
-        [spot, spots, categories, setSpot, getSpot, getSpots]
+        [
+            spot,
+            spots,
+            categories,
+            category,
+            isLoading,
+            setSpot,
+            setSpots,
+            setCategory,
+            getSpot,
+            getSpots,
+            getSpotsByCategory,
+        ]
     );
 
     return (

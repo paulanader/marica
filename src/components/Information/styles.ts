@@ -4,7 +4,6 @@ export const StylesInfo = styled.div`
     h2 {
         font-size: 22px;
         padding-bottom: 10px;
-        margin-bottom: 24px;
         border-bottom: 1px solid rgb(204, 204, 204);
     }
 `;
@@ -12,15 +11,39 @@ export const StylesInfo = styled.div`
 export const StylesList = styled.div`
     list-style-type: none;
     text-decoration: none;
+    font-size: 18px;
+    color: var(--success);
+    --bs-gutter-x: 0;
+
+    p {
+        font-size: 18px;
+        color: var(--dark);
+    }
+    h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    h3 {
+        font-size: 16px;
+        color: var(--dark);
+    }
+
+    SVG {
+        color: var(--success);
+    }
+`;
+
+export const TableStales = styled.ul`
+    list-style-type: none;
+    text-decoration: none;
     box-sizing: border-box;
     font-size: 18px;
     color: var(--success);
-    padding-bottom: 10px;
 
-    p,
-    td {
+    p {
         font-size: 22px;
-        padding-bottom: 10px;
         font-size: 18px;
         color: var(--dark);
     }

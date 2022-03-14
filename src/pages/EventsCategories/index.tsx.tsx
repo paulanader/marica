@@ -1,0 +1,70 @@
+import { useCallback, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Container } from '../../components/Container';
+import { Header } from '../../components/Header';
+import { PageTitle } from '../../components/PageTitle';
+import { Search } from '../../components/Search';
+import { PillMap } from '../../components/PillMap';
+import { Footer } from '../../components/Footer';
+import { Main } from '../../components/Main';
+import { useEvents } from '../../hooks/EventProvider';
+import { EventCard } from '../../components/EventCard';
+
+export const EventsCategories: React.FC = () => {
+    const { events, category, getEventsByCategory, getEvents } = useEvents();
+    const { id } = useParams();
+
+    useEffect(() => {
+        getEventsByCategory(parseInt(id ?? '', 10));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    const handleSearch = useCallback((searchText: string): void => {
+        getEvents(searchText);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <>
+            <Header />
+            <Main>
+                <Container>
+                    <div className="container">
+                        <div className="row justify-content-between align-items-center">
+                            <div className="col">
+                                <PageTitle
+                                    title={category?.label}
+                                    url="/eventos"
+                                    category="Eventos"
+                                />
+                            </div>
+                            <div className="col d-flex">
+                                <PillMap url={`eventos/${id}`} />
+                                <Search
+                                    placeHolderValue="Buscar Eventos"
+                                    onSearch={handleSearch}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                        {events.map(event => {
+                            return (
+                                <div
+                                    key={event.id}
+                                    className="col d-flex align-items-stretch"
+                                >
+                                    <EventCard
+                                        item={event}
+                                        url={`/eventos/${event.id}`}
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+                </Container>
+            </Main>
+            <Footer />
+        </>
+    );
+};

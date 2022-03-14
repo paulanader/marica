@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import { Contant } from './styles';
 
 interface IPageTitleProps {
-    item: string;
+    title?: string;
     category?: string;
     url: string;
+    title2?: string;
 }
 
 export const PageTitle: React.FC<IPageTitleProps> = ({
-    item,
+    title,
     url,
     category,
+    title2,
 }) => (
-    <Contant className="d-flex align-item-center justify-content-start">
+    <Contant className="d-flex align-items-center justify-content-start">
         <Link
             className="fs-3 text-white me-2 d-flex align-items-center"
             to={url}
@@ -22,7 +24,8 @@ export const PageTitle: React.FC<IPageTitleProps> = ({
         </Link>
         <div>
             <p className="fs-sm fw-light mt-0 mb-0">{category}</p>
-            <h1 className="fs-lg fw-bold m-0">{item}</h1>
+            <h1 className="fs-lg fw-bold m-0">{title}</h1>
+            <h2 className="fs-lg fw-bold m-0">{title2}</h2>
         </div>
     </Contant>
 );

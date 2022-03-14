@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 import { useBanners } from '../../hooks/BannersProvider';
+import { IsLoadingCarousel } from './styles';
 
 export const Carousel: React.FC = () => {
-    const { banners, getBanners } = useBanners();
+    const { banners, isLoading, getBanners } = useBanners();
 
     useEffect(() => {
         getBanners();
@@ -16,20 +18,29 @@ export const Carousel: React.FC = () => {
             data-bs-ride="carousel"
         >
             <div className="carousel-inner">
-                {banners.map((banner, index) => (
-                    <div
-                        key={banner.id}
-                        className={`carousel-item ${
-                            index === 0 ? 'active' : ''
-                        }`}
-                    >
-                        <img
-                            src={banner.image_l}
-                            className="d-block w-100"
-                            alt="Carrousel"
+                {isLoading && (
+                    <IsLoadingCarousel className="d-flex justify-content-center align-items-center w-100">
+                        <TailSpin
+                            ariaLabel="loading-indicator"
+                            color="#6c757d"
                         />
-                    </div>
-                ))}
+                    </IsLoadingCarousel>
+                )}
+                {!isLoading &&
+                    banners.map((banner, index) => (
+                        <div
+                            key={banner.id}
+                            className={`carousel-item ${
+                                index === 0 ? 'active' : ''
+                            }`}
+                        >
+                            <img
+                                src={banner.image_l}
+                                className="d-block w-100"
+                                alt="Carrousel"
+                            />
+                        </div>
+                    ))}
             </div>
             <button
                 className="carousel-control-prev"

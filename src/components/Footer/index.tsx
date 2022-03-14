@@ -1,15 +1,16 @@
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
+import { Container } from 'reactstrap';
 import { DarkFooter, DarkMainFooter } from './styles';
 import MaricaProtegeLogoImg from '../../assets/marica-protege-logo.png';
 import MaricaLogoImg from '../../assets/marica-turismo.png';
 
 export const Footer: React.FC = () => {
     return (
-        <DarkFooter>
+        <DarkFooter className="mt-auto">
             <DarkMainFooter>
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="d-flex flex-column col-xl-6 mb-4 mb-xl-0 align-items-center ">
+                <Container>
+                    <div className="row row-cols-1 row-cols-md-2 align-items-center py-4">
+                        <div className="col d-flex flex-column col-xl-6 mb-4 mb-xl-0 align-items-center ">
                             <div className="d-flex align-items-center justify-content-center justify-content-xl-start mb-2">
                                 <a
                                     className="text-white mx-2"
@@ -72,7 +73,7 @@ export const Footer: React.FC = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="d-flex flex-column flex-md-row col-xl-6 justify-content-center justify-content-xl-end text-center text-md-left align-items-center ">
+                        <div className="col d-flex flex-column flex-md-row col-xl-6 justify-content-center justify-content-xl-end text-center text-md-left align-items-center ">
                             <div className="mb-md-0">
                                 <img
                                     src={MaricaProtegeLogoImg}
@@ -80,20 +81,18 @@ export const Footer: React.FC = () => {
                                     height="60"
                                 />
                             </div>
-                            <div className="mx-md-4  mb-md-0">
-                                <p className="text-white underline">
+                            <div className="mx-md-4 mt-3 mb-md-0">
+                                <p className="text-white mb-1">
                                     Manual Gastronomia
                                 </p>
-                                <p className="text-white underline">
-                                    Manual Hospedagem
-                                </p>
+                                <p className="text-white">Manual Hospedagem</p>
                             </div>
                             <div>
                                 <img src={MaricaLogoImg} alt="Logo Maricá" />
                             </div>
                         </div>
                     </div>
-                </div>
+                </Container>
             </DarkMainFooter>
         </DarkFooter>
     );

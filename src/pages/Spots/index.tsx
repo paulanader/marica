@@ -1,81 +1,79 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Categories } from '../../components/Categories';
+import { useCallback, useEffect } from 'react';
+import { CategoriesPill } from '../../components/CategoriesPill';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { Main } from '../../components/Main';
 import { Container } from '../../components/OffCanvas/styles';
 import { PageTitle } from '../../components/PageTitle';
 import { Search } from '../../components/Search';
-import { SpotCard } from '../../components/SpotCard';
 import { useSpots } from '../../hooks/SpotProvider';
-import { Map } from '../../components/Map';
+import { PillMap } from '../../components/PillMap';
+import { Main } from '../../components/Main';
+import { Card } from '../../components/Card';
+import { MainLoader } from '../../components/MainLoader';
+import { Wrapper } from '../../components/Wrapper';
 
 export const Spots: React.FC = () => {
-    const { spots, categories, getSpots } = useSpots();
-
-    const [inputSearch, setinputSearch] = useState('');
+    const { spots, categories, isLoading, setCategory, getSpots } = useSpots();
 
     useEffect(() => {
         getSpots('');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleSearchByKeyPress = useCallback(
-        (event: React.KeyboardEvent<HTMLInputElement>) =>
-            [event.code, event.key].includes('Enter')
-                ? getSpots(inputSearch)
-                : null,
-        [getSpots, inputSearch]
-    );
+    const handleSearch = useCallback((searchText: string): void => {
+        getSpots(searchText);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
-        <>
+        <Wrapper>
             <Header />
             <Main>
                 <Container>
                     <div className="container">
                         <div className="row justify-content-between align-items-center">
-                            <div className="col">
-                                <PageTitle item="Pontos Turísticos" url="/" />
+                            <div className="col-md-6">
+                                <PageTitle title="Pontos Turísticos" url="/" />
                             </div>
-                            <div className="col d-flex">
-                                <Map />
+                            <div className="d-flex col-md-6">
+                                <PillMap url="pontos-turisticos" />
                                 <Search
-                                    value={inputSearch}
-                                    onKeyPressValue={handleSearchByKeyPress}
-                                    onChangeValue={ev =>
-                                        setinputSearch(ev.target.value)
-                                    }
-                                    onClickValue={() => getSpots(inputSearch)}
                                     placeHolderValue="Buscar pontos turísticos"
+                                    onSearch={handleSearch}
                                 />
                             </div>
                         </div>
-                        <Categories
-                            categories={categories}
-                            url="pontos-turisticos"
-                            color="success"
-                            text="white"
-                        />
-                        <div className="row row-cols-3">
-                            {spots.map(spot => {
-                                return (
-                                    <div
-                                        key={spot.id}
-                                        className="col d-flex align-items-stretch"
-                                    >
-                                        <SpotCard
-                                            item={spot}
-                                            url={`/pontos-turisticos/${spot.id}`}
-                                        />
-                                    </div>
-                                );
-                            })}
+                        {isLoading && <MainLoader />}
+                        {!isLoading && (
+                            <CategoriesPill
+                                categories={categories}
+                                url="pontos-turisticos"
+                                color="success"
+                                text="white"
+                                _setCategory={setCategory}
+                                size={6}
+                            />
+                        )}
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                            {!isLoading &&
+                                spots.map(spot => {
+                                    return (
+                                        <div
+                                            key={spot.id}
+                                            className="col d-flex align-items-stretch mb-3"
+                                        >
+                                            <Card
+                                                item={spot}
+                                                url={`/pontos-turisticos/${spot.id}`}
+                                            />
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                 </Container>
             </Main>
             <Footer />
-        </>
+        </Wrapper>
     );
 };

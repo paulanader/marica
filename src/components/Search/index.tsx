@@ -1,21 +1,26 @@
+import { useCallback, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { Radius } from './styles';
 
 interface ISearchProps {
-    value: string | number | readonly string[] | undefined;
-    onKeyPressValue: React.KeyboardEventHandler<HTMLInputElement> | undefined;
-    onChangeValue: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    onClickValue: React.MouseEventHandler<HTMLButtonElement> | undefined;
     placeHolderValue: string;
+    onSearch(searchText: string): void;
 }
 
 export const Search: React.FC<ISearchProps> = ({
-    value,
-    onKeyPressValue,
-    onChangeValue,
     placeHolderValue,
-    onClickValue,
+    onSearch,
 }) => {
+    const [searchText, setSearchText] = useState('');
+
+    const handleInputKeyUp = useCallback(
+        ev => {
+            if (ev.key === 'Enter') {
+                onSearch(searchText);
+            }
+        },
+        [onSearch, searchText]
+    );
     return (
         <div className="container">
             <div className="row justify-content-end">
@@ -25,15 +30,15 @@ export const Search: React.FC<ISearchProps> = ({
                             <input
                                 className="form-control form-input shadow-none"
                                 type="text"
-                                value={value}
-                                onKeyPress={onKeyPressValue}
-                                onChange={onChangeValue}
+                                value={searchText}
+                                onChange={ev => setSearchText(ev.target.value)}
+                                onKeyUp={handleInputKeyUp}
                                 placeholder={placeHolderValue}
                             />
                             <div className="input-group-append">
                                 <button
                                     type="button"
-                                    onClick={onClickValue}
+                                    onClick={() => onSearch(searchText)}
                                     className="btn btn-light"
                                 >
                                     <BsSearch className="text-dark" />

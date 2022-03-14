@@ -5,7 +5,10 @@ import { PhoneType } from './PhoneType';
 import { MediaType } from './MediaType';
 import { OpeningHourType } from './OpeningHourType';
 import { TravalerType } from './TravalerType';
-import { BenefitType } from './BenefitType';
+import { StructureType } from './StructureType';
+import { PaymentType } from './PaymentType';
+import { RestrictionType } from './RestrictionType';
+import { ImageType } from './ImageType';
 
 export type SpotType = {
     id: number;
@@ -26,5 +29,9 @@ export type SpotType = {
     dicas_t: string;
     preco_t: string;
     viajantes: TravalerType[];
-    estruturas: BenefitType[];
+    estruturas: StructureType[];
+    formas_pagamento: PaymentType[];
+    restricoes: RestrictionType[];
+    images: ImageType[];
+    is_delivery?: boolean;
 };

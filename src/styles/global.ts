@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --success: rgb(110,189,0);
+    --success: #64BD00;
     --info: #17a2b8;
     --light: #f8f9fa;
     --dark: #343a40;
@@ -14,6 +14,10 @@ export const GlobalStyle = createGlobalStyle`
     --white: #ffffff;
     --light-gray:#666;
      }
+
+    html, body, #root {
+        min-height: 100vh;
+    }
 
     body {
         background: var(--light);

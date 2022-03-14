@@ -19,13 +19,14 @@ export const OffCanvasComp: React.FC = () => {
     return (
         <Container>
             <a
-                className="d-block mt-3 fs-5 text-white me-2 border-none"
+                className="d-flex mt-3 fs-5 text-white me-2 border-none align-items-center"
                 data-bs-toggle="offcanvas"
                 href="#sidebar"
                 role="button"
                 aria-controls="sidebar"
             >
-                <FaBars /> Menu
+                <FaBars />
+                <span className="d-none d-md-inline px-2">Menu</span>
             </a>
             <Content
                 className="offcanvas offcanvas-start justify-content-end"
@@ -48,7 +49,7 @@ export const OffCanvasComp: React.FC = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link to="/sobre" className="fs-5 text-white me-2">
                             <FaInfo className="me-3" />
                             <span>Sobre a cidade</span>
                         </Link>
@@ -59,29 +60,38 @@ export const OffCanvasComp: React.FC = () => {
                             className="fs-5 text-white"
                         >
                             <FaUmbrellaBeach className="me-2" />
-                            <span> Pontos Turísticos</span>
+                            <span>Pontos Turísticos</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link
+                            to="/hoteis-e-pousadas"
+                            className="fs-5 text-white me-2"
+                        >
                             <FaBed className="me-3" />
                             <span>Hotéis e pousadas</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link
+                            to="bares-e-restaurantes"
+                            className="fs-5 text-white me-2"
+                        >
                             <BiRestaurant className="me-3" />
                             <span>Bares e restaurantes</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link to="/delivery" className="fs-5 text-white me-2">
                             <FaMotorcycle className="me-3" />
                             <span>Delivery</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link
+                            to="/comercio-local"
+                            className="fs-5 text-white me-2"
+                        >
                             <FaStoreAlt className="me-3" />
                             <span>Comércio Local</span>
                         </Link>
@@ -93,28 +103,37 @@ export const OffCanvasComp: React.FC = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link
+                            to="/espacos-para-eventos"
+                            className="fs-5 text-white me-2"
+                        >
                             <FaHome className="me-3" />
                             <span>Espaços para eventos</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <Link to="/eventos" className="fs-5 text-white me-2">
                             <FaMicrophoneAlt className="me-3" />
                             <span>Eventos</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <a
+                            href="https://contato.site/5d9bab8/marica-cvb3/paginaprincipal"
+                            className="fs-5 text-white me-2"
+                        >
                             <FaRoute className="me-3" />
-                            <span>Roteiros turísticos</span>
-                        </Link>
+                            <span>Roteiros Turísticos</span>
+                        </a>
                     </li>
                     <li>
-                        <Link to="/" className="fs-5 text-white me-2">
+                        <a
+                            href="https://www.feirartemarica.com.br/"
+                            className="fs-5 text-white me-2"
+                        >
                             <FaFan className="me-3" />
                             <span>Artesanato</span>
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </Content>

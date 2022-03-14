@@ -11,6 +11,7 @@ export const Button = styled.button`
         color: var(--success);
         background: var(--light);
         border: 1px solid var(--success);
+        filter: brightness(1.1);
     }
 
     a {
@@ -33,5 +34,15 @@ export const DescriptionStyles = styled.div`
     }
     p {
         font-size: 13px;
+    }
+`;
+
+export const LinkDecoration = styled(Link)`
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 1.2;
+
+    &:hover {
+        text-decoration: underline;
     }
 `;
