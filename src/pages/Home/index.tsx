@@ -27,7 +27,7 @@ export const Home: React.FC = () => (
         <Carousel />
         <Main>
             <Container>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-center gy-2 gx-2 pb-5 py-5">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-center gy-2 gx-2 pb-5">
                     <div className="col">
                         <HomeCard
                             image={<FaUmbrellaBeach />}
