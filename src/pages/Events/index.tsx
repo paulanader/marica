@@ -16,6 +16,7 @@ export const Events: React.FC = () => {
 
     useEffect(() => {
         getEvents('');
+        window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -48,6 +49,7 @@ export const Events: React.FC = () => {
                             color="success"
                             text="white"
                             _setCategory={setCategory}
+                            size={6}
                         />
                     )}
                     <div className="row row-cols-3">
@@ -60,7 +62,6 @@ export const Events: React.FC = () => {
                                     >
                                         <EventCard
                                             item={event}
-                                            url={`/eventos/${event.id}`}
                                             _setCategory={setCategory}
                                         />
                                     </div>

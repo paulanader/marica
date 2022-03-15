@@ -32,11 +32,7 @@ export const Marker: React.FC<IMarkerProps> = ({
         <WrapperMarker>
             {showCard && (
                 <CardStyles>
-                    <EventCard
-                        item={item}
-                        url={`/eventos/${item.id}`}
-                        _setCategory={_setCategory}
-                    />
+                    <EventCard item={item} _setCategory={_setCategory} />
                 </CardStyles>
             )}
             <StylesMarker type="button" onClick={onPinClick}>

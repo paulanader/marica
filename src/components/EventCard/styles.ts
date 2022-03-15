@@ -58,3 +58,7 @@ export const LinkDecoration = styled(Link)`
         color: var(--primary);
     }
 `;
+
+export const FontSizePillDecoration = styled.div`
+    font-size: 0em;
+`;

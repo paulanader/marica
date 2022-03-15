@@ -57,7 +57,6 @@ export const EventsCategories: React.FC = () => {
                                 >
                                     <EventCard
                                         item={event}
-                                        url={`/eventos/${event.id}`}
                                         _setCategory={setCategory}
                                     />
                                 </div>

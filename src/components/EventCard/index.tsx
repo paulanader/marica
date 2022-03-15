@@ -3,17 +3,21 @@
 import { CategoryType } from '../../@types/CategoryType';
 import { EventType } from '../../@types/EventType';
 import { CategoriesPill } from '../CategoriesPill';
-import { ImgageCardLink, LinkDecoration, Margin, StylesCard } from './styles';
+import {
+    FontSizePillDecoration,
+    ImgageCardLink,
+    LinkDecoration,
+    Margin,
+    StylesCard,
+} from './styles';
 
 interface IEventCardProps {
     item: EventType;
-    url: string;
     _setCategory: (category: CategoryType) => void;
 }
 
 export const EventCard: React.FC<IEventCardProps> = ({
     item,
-    url,
     _setCategory,
 }) => {
     const datahora_inicio_original = item.datahora_inicio.split(' ');
@@ -35,7 +39,7 @@ export const EventCard: React.FC<IEventCardProps> = ({
 
     return (
         <StylesCard className="card rounded rounded-top w-100 h-100">
-            <ImgageCardLink to={url}>
+            <ImgageCardLink to={`/eventos/${item.id}`}>
                 <img
                     className="img-responsive"
                     src={item.capa}
@@ -55,15 +59,19 @@ export const EventCard: React.FC<IEventCardProps> = ({
                 </div>
                 <Margin className="px-3">
                     <h2 className="card-title fs-md fw-bold mt-0 mb-2">
-                        <LinkDecoration to={url}>{item.nome}</LinkDecoration>
+                        <LinkDecoration to={`/eventos/${item.id}`}>
+                            {item.nome}
+                        </LinkDecoration>
                     </h2>
-                    <CategoriesPill
-                        categories={item.categorias}
-                        url="eventos"
-                        color="light"
-                        text="dark"
-                        _setCategory={_setCategory}
-                    />
+                    <FontSizePillDecoration>
+                        <CategoriesPill
+                            categories={item.categorias}
+                            url="eventos"
+                            color="light"
+                            text="dark"
+                            _setCategory={_setCategory}
+                        />
+                    </FontSizePillDecoration>
                 </Margin>
             </div>
             {item.enderecos.map(address => (

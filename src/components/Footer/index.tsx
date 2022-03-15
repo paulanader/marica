@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
         <DarkFooter className="mt-auto">
             <DarkMainFooter>
                 <Container>
-                    <div className="row row-cols-1 row-cols-md-2 align-items-center py-4">
+                    <div className="row row-cols-1 row-cols-lg-2 align-items-center py-4">
                         <div className="col d-flex flex-column col-xl-6 mb-4 mb-xl-0 align-items-center ">
                             <div className="d-flex align-items-center justify-content-center justify-content-xl-start mb-2">
                                 <a
