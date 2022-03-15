@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { BigMap } from '../../components/BigMap';
 import { Wrapper } from '../../components/Wrapper';
 import { useEventSpaces } from '../../hooks/EventSpaceProvider';
+import { setTitle } from '../../utils/title';
 
 export const EventSpacesMap: React.FC = () => {
     const { eventSpaces, getEventSpaces, setCategory } = useEventSpaces();
@@ -12,6 +13,10 @@ export const EventSpacesMap: React.FC = () => {
         getEventSpaces('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Espaços para Eventos`);
     }, []);
 
     return (

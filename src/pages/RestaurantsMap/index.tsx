@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { BigMap } from '../../components/BigMap';
 import { Wrapper } from '../../components/Wrapper';
 import { useRestaurants } from '../../hooks/RestaurantProvider';
+import { setTitle } from '../../utils/title';
 
 export const RestaurantsMap: React.FC = () => {
     const { restaurants, getRestaurants, setCategory } = useRestaurants();
@@ -12,6 +13,10 @@ export const RestaurantsMap: React.FC = () => {
         getRestaurants('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Restaurantes`);
     }, []);
 
     return (

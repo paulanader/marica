@@ -10,6 +10,7 @@ import { PillMap } from '../../components/PillMap';
 import { Search } from '../../components/Search';
 import { Wrapper } from '../../components/Wrapper';
 import { useHotels } from '../../hooks/HotelProvider';
+import { setTitle } from '../../utils/title';
 
 export const Hotels: React.FC = () => {
     const { hotels, categories, isLoading, setCategory, getHotels } =
@@ -20,6 +21,11 @@ export const Hotels: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`Hotéis e Pousadas`);
+    }, []);
+
     const handleSearch = useCallback((searchText: string): void => {
         getHotels(searchText);
         // eslint-disable-next-line react-hooks/exhaustive-deps

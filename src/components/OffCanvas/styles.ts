@@ -6,6 +6,7 @@ export const Container = styled.div`
     list-style-type: none;
     text-decoration: none;
     color: var(--white);
+    z-index: 3;
 
     a,
     button {

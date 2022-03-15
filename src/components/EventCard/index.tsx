@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
-import { CategoryType } from '../../@types/CategoryType';
 import { EventType } from '../../@types/EventType';
+import { useEvents } from '../../hooks/EventProvider';
 import { CategoriesPill } from '../CategoriesPill';
 import {
     FontSizePillDecoration,
@@ -13,13 +13,11 @@ import {
 
 interface IEventCardProps {
     item: EventType;
-    _setCategory: (category: CategoryType) => void;
 }
 
-export const EventCard: React.FC<IEventCardProps> = ({
-    item,
-    _setCategory,
-}) => {
+export const EventCard: React.FC<IEventCardProps> = ({ item }) => {
+    const { setCategory } = useEvents();
+
     const datahora_inicio_original = item.datahora_inicio.split(' ');
     const data = datahora_inicio_original[0].split('-');
     const arrayMonth = [
@@ -39,7 +37,7 @@ export const EventCard: React.FC<IEventCardProps> = ({
 
     return (
         <StylesCard className="card rounded rounded-top w-100 h-100">
-            <ImgageCardLink to={`/eventos/${item.id}`}>
+            <ImgageCardLink to={`${item.id}`}>
                 <img
                     className="img-responsive"
                     src={item.capa}
@@ -69,7 +67,7 @@ export const EventCard: React.FC<IEventCardProps> = ({
                             url="eventos"
                             color="light"
                             text="dark"
-                            _setCategory={_setCategory}
+                            _setCategory={setCategory}
                         />
                     </FontSizePillDecoration>
                 </Margin>

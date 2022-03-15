@@ -19,20 +19,18 @@ interface IMarkerProps {
     item: EventType;
     showCard: boolean;
     onPinClick: () => void;
-    _setCategory: (category: CategoryType) => void;
 }
 
 export const Marker: React.FC<IMarkerProps> = ({
     item,
     showCard,
     onPinClick,
-    _setCategory,
 }) => {
     return (
         <WrapperMarker>
             {showCard && (
                 <CardStyles>
-                    <EventCard item={item} _setCategory={_setCategory} />
+                    <EventCard item={item} />
                 </CardStyles>
             )}
             <StylesMarker type="button" onClick={onPinClick}>
@@ -53,7 +51,6 @@ export const EventBigMap: React.FC<ILocationInBigMapProps> = ({
     items,
     title,
     url,
-    _setCategory,
 }) => {
     const [activeAddress, setActiveAddress] = useState<number | null>(null);
 
@@ -82,7 +79,6 @@ export const EventBigMap: React.FC<ILocationInBigMapProps> = ({
                                 lng={address.lng}
                                 key={address.id}
                                 item={item}
-                                _setCategory={_setCategory}
                                 showCard={address.id === activeAddress}
                                 onPinClick={() =>
                                     setActiveAddress(

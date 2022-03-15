@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { BigMap } from '../../components/BigMap';
 import { Wrapper } from '../../components/Wrapper';
 import { useLocalMarkets } from '../../hooks/LocalMarketsProvider';
+import { setTitle } from '../../utils/title';
 
 export const LocalMarketsMap: React.FC = () => {
     const { localMarkets, getLocalMarkets, setCategory } = useLocalMarkets();
@@ -12,6 +13,10 @@ export const LocalMarketsMap: React.FC = () => {
         getLocalMarkets('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Comércio Local`);
     }, []);
 
     return (

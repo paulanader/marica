@@ -15,6 +15,7 @@ import { Main } from '../../components/Main';
 import { Wrapper } from '../../components/Wrapper';
 import { useEventSpaces } from '../../hooks/EventSpaceProvider';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const EventSpace: React.FC = () => {
     const { eventSpace, isLoading, setCategory, getEventSpace } =
@@ -26,6 +27,10 @@ export const EventSpace: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${eventSpace?.nome ?? 'Loading...'} | Espaços para Eventos`);
+    }, [eventSpace]);
 
     return (
         <Wrapper>

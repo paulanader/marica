@@ -1,5 +1,6 @@
 import { CategoryType } from '../../@types/CategoryType';
 import { Pill } from '../Pill';
+import { OverFlow } from './styles';
 
 interface ICategoriesProps {
     categories?: CategoryType[];
@@ -20,7 +21,7 @@ export const CategoriesPill: React.FC<ICategoriesProps> = ({
     _setCategory,
 }) => {
     return (
-        <ul className="d-flex flex-wrap m-0 mb-3 list-unstyled align-items-start">
+        <OverFlow className="d-flex m-0 mb-3 list-unstyled align-items-start">
             {Array.isArray(categories) &&
                 categories.length > 0 &&
                 categories.map(category => (
@@ -36,6 +37,6 @@ export const CategoriesPill: React.FC<ICategoriesProps> = ({
                         </Pill>
                     </li>
                 ))}
-        </ul>
+        </OverFlow>
     );
 };

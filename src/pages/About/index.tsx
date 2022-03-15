@@ -7,6 +7,7 @@ import { Main } from '../../components/Main';
 import { PageTitle } from '../../components/PageTitle';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
 import { useAbout } from '../../hooks/AboutProvider';
+import { setTitle } from '../../utils/title';
 import { Banner, MainStyles } from './styles';
 
 export const About: React.FC = () => {
@@ -15,6 +16,10 @@ export const About: React.FC = () => {
         getAbout();
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Sobre a Cidade`);
     }, []);
 
     return (

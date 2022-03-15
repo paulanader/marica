@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { EventBigMap } from '../../components/EventBigMap';
 import { Wrapper } from '../../components/Wrapper';
 import { useEvents } from '../../hooks/EventProvider';
+import { setTitle } from '../../utils/title';
 
 export const EventsMap: React.FC = () => {
     const { events, getEvents, setCategory } = useEvents();
@@ -14,6 +15,9 @@ export const EventsMap: React.FC = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        setTitle(`Eventos`);
+    }, []);
     return (
         <Wrapper>
             <Header fixed />

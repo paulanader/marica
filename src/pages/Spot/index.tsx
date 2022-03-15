@@ -12,6 +12,7 @@ import { SliderImage } from '../../components/SpotSlider';
 import { useSpots } from '../../hooks/SpotProvider';
 import { Main } from '../../components/Main';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const Spot: React.FC = () => {
     const { spot, isLoading, setCategory, getSpot } = useSpots();
@@ -22,6 +23,10 @@ export const Spot: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${spot?.nome ?? 'Loading...'} | Pontos Turísticos`);
+    }, [spot]);
 
     return (
         <>

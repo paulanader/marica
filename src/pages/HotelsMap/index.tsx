@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { BigMap } from '../../components/BigMap';
 import { Wrapper } from '../../components/Wrapper';
 import { useHotels } from '../../hooks/HotelProvider';
+import { setTitle } from '../../utils/title';
 
 export const HotelsMap: React.FC = () => {
     const { hotels, getHotels, setCategory } = useHotels();
@@ -12,6 +13,10 @@ export const HotelsMap: React.FC = () => {
         getHotels('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Hotéis e Pousadas`);
     }, []);
 
     return (

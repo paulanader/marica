@@ -60,10 +60,7 @@ export const Events: React.FC = () => {
                                         key={event.id}
                                         className="col d-flex align-items-stretch mb-3"
                                     >
-                                        <EventCard
-                                            item={event}
-                                            _setCategory={setCategory}
-                                        />
+                                        <EventCard item={event} />
                                     </div>
                                 );
                             })}

@@ -13,6 +13,7 @@ import { useHotels } from '../../hooks/HotelProvider';
 import { Information } from '../../components/Information';
 import { Loader } from '../../components/IsLoading';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const Hotel: React.FC = () => {
     const { hotel, isLoading, setCategory, getHotel } = useHotels();
@@ -23,6 +24,10 @@ export const Hotel: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${hotel?.nome ?? 'Loading...'} | Hotéis e Pousadas`);
+    }, [hotel]);
 
     return (
         <>

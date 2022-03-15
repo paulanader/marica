@@ -10,6 +10,7 @@ export const StylesPill = styled(Link)`
     justify-content: center;
     align-items: center;
     height: 30px;
+    white-space: nowrap;
 
     &:hover {
         filter: brightness(1.3);

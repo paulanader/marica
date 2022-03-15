@@ -14,6 +14,7 @@ import { Information } from '../../components/Information';
 import { DeliveryPill } from '../../components/DeliveryPill';
 import { useLocalMarkets } from '../../hooks/LocalMarketsProvider';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const LocalMarket: React.FC = () => {
     const { localMarket, isLoading, setCategory, getLocalMarket } =
@@ -26,6 +27,10 @@ export const LocalMarket: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${localMarket?.nome ?? 'Loading...'} | Comércio Local`);
+    }, [localMarket]);
 
     return (
         <>

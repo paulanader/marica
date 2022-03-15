@@ -14,6 +14,7 @@ import { useRestaurants } from '../../hooks/RestaurantProvider';
 import { Information } from '../../components/Information';
 import { DeliveryPill } from '../../components/DeliveryPill';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const Restaurant: React.FC = () => {
     const { restaurant, isLoading, setCategory, getRestaurant } =
@@ -26,6 +27,10 @@ export const Restaurant: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${restaurant?.nome ?? 'Loading...'} | Restaurantes`);
+    }, [restaurant]);
 
     return (
         <>

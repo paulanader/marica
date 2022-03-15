@@ -11,6 +11,7 @@ import { Main } from '../../components/Main';
 import { Card } from '../../components/Card';
 import { MainLoader } from '../../components/MainLoader';
 import { Wrapper } from '../../components/Wrapper';
+import { setTitle } from '../../utils/title';
 
 export const Spots: React.FC = () => {
     const { spots, categories, isLoading, setCategory, getSpots } = useSpots();
@@ -19,6 +20,10 @@ export const Spots: React.FC = () => {
         getSpots('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Pontos Turísticos`);
     }, []);
 
     const handleSearch = useCallback((searchText: string): void => {

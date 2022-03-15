@@ -42,10 +42,10 @@ export const PageTitleStyles = styled.div`
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    z-index: 2;
+    z-index: 1;
 
     @media (max-width: 767px) {
-        top: 65px;
+        top: 100px;
         right: 15px;
     }
 `;

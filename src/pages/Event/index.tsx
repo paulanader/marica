@@ -14,6 +14,7 @@ import { useEvents } from '../../hooks/EventProvider';
 import { EventSlider } from '../../components/EventSlider';
 import { DateEvent } from '../../components/DateEvent';
 import { UnitaryIsLoading } from '../../components/UnitaryIsLoading';
+import { setTitle } from '../../utils/title';
 
 export const Event: React.FC = () => {
     const { event, isLoading, setCategory, getEvent } = useEvents();
@@ -25,6 +26,10 @@ export const Event: React.FC = () => {
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setTitle(`${event?.nome ?? 'Loading...'} | Eventos`);
+    }, [event]);
 
     return (
         <>

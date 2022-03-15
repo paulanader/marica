@@ -10,6 +10,7 @@ import { Main } from '../../components/Main';
 import { useEventSpaces } from '../../hooks/EventSpaceProvider';
 import { Card } from '../../components/Card';
 import { MainLoader } from '../../components/MainLoader';
+import { setTitle } from '../../utils/title';
 
 export const EventSpaces: React.FC = () => {
     const { eventSpaces, categories, isLoading, setCategory, getEventSpaces } =
@@ -19,6 +20,10 @@ export const EventSpaces: React.FC = () => {
         getEventSpaces('');
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        setTitle(`Espaços para Eventos`);
     }, []);
 
     const handleSearch = useCallback((searchText: string): void => {
