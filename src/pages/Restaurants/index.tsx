@@ -38,7 +38,7 @@ export const Restaurants: React.FC = () => {
             <Header />
             <Main>
                 <div className="container">
-                    <div className="row justify-content-between align-items-center">
+                    <div className="row row-cols-1 row-cols-md-2 justify-content-between align-items-center">
                         <div className="col-md-6">
                             <PageTitle title="Bares e Restaurantes" url="/" />
                         </div>

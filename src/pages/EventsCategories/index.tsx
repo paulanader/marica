@@ -11,8 +11,7 @@ import { useEvents } from '../../hooks/EventProvider';
 import { EventCard } from '../../components/EventCard';
 
 export const EventsCategories: React.FC = () => {
-    const { events, category, getEventsByCategory, getEvents, setCategory } =
-        useEvents();
+    const { events, category, getEventsByCategory, getEvents } = useEvents();
     const { id } = useParams();
 
     useEffect(() => {
@@ -31,7 +30,7 @@ export const EventsCategories: React.FC = () => {
             <Main>
                 <Container>
                     <div className="container">
-                        <div className="row justify-content-between align-items-center">
+                        <div className="row row-cols-1 row-cols-md-2 justify-content-between align-items-center">
                             <div className="col">
                                 <PageTitle
                                     title={category?.label}
