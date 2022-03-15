@@ -6,7 +6,7 @@ import { Wrapper } from '../../components/Wrapper';
 import { useSpots } from '../../hooks/SpotProvider';
 
 export const SpotsMap: React.FC = () => {
-    const { spots, getSpots } = useSpots();
+    const { spots, getSpots, setCategory } = useSpots();
 
     useEffect(() => {
         getSpots('');
@@ -22,7 +22,8 @@ export const SpotsMap: React.FC = () => {
                         <BigMap
                             items={spots}
                             title="Pontos Turísticos"
-                            url="/pontos-turisticos"
+                            url="pontos-turisticos"
+                            _setCategory={setCategory}
                         />
                     )}
                 </div>

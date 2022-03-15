@@ -66,7 +66,8 @@ export const LocalMarkets: React.FC = () => {
                                     >
                                         <Card
                                             item={market}
-                                            url={`/comercio-local/${market.id}`}
+                                            url="comercio-local"
+                                            _setCategory={setCategory}
                                         />
                                     </div>
                                 );

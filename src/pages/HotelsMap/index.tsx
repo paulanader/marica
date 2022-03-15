@@ -6,7 +6,7 @@ import { Wrapper } from '../../components/Wrapper';
 import { useHotels } from '../../hooks/HotelProvider';
 
 export const HotelsMap: React.FC = () => {
-    const { hotels, getHotels } = useHotels();
+    const { hotels, getHotels, setCategory } = useHotels();
 
     useEffect(() => {
         getHotels('');
@@ -22,7 +22,8 @@ export const HotelsMap: React.FC = () => {
                         <BigMap
                             items={hotels}
                             title="Hotéis e Pousadas"
-                            url="/hoteis-e-pousadas"
+                            url="hoteis-e-pousadas"
+                            _setCategory={setCategory}
                         />
                     )}
                 </div>

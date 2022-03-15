@@ -2,6 +2,7 @@
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react';
 import { ImLocation } from 'react-icons/im';
+import { CategoryType } from '../../@types/CategoryType';
 import { EventType } from '../../@types/EventType';
 import { EventCard } from '../EventCard';
 import { PageTitle } from '../PageTitle';
@@ -18,18 +19,24 @@ interface IMarkerProps {
     item: EventType;
     showCard: boolean;
     onPinClick: () => void;
+    _setCategory: (category: CategoryType) => void;
 }
 
 export const Marker: React.FC<IMarkerProps> = ({
     item,
     showCard,
     onPinClick,
+    _setCategory,
 }) => {
     return (
         <WrapperMarker>
             {showCard && (
                 <CardStyles>
-                    <EventCard item={item} url={`/eventos/${item.id}`} />
+                    <EventCard
+                        item={item}
+                        url={`/eventos/${item.id}`}
+                        _setCategory={_setCategory}
+                    />
                 </CardStyles>
             )}
             <StylesMarker type="button" onClick={onPinClick}>
@@ -43,12 +50,14 @@ interface ILocationInBigMapProps {
     items: EventType[];
     title: string;
     url: string;
+    _setCategory: (category: CategoryType) => void;
 }
 
 export const EventBigMap: React.FC<ILocationInBigMapProps> = ({
     items,
     title,
     url,
+    _setCategory,
 }) => {
     const [activeAddress, setActiveAddress] = useState<number | null>(null);
 
@@ -77,6 +86,7 @@ export const EventBigMap: React.FC<ILocationInBigMapProps> = ({
                                 lng={address.lng}
                                 key={address.id}
                                 item={item}
+                                _setCategory={_setCategory}
                                 showCard={address.id === activeAddress}
                                 onPinClick={() =>
                                     setActiveAddress(

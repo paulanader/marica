@@ -11,8 +11,13 @@ import { Main } from '../../components/Main';
 import { useRestaurants } from '../../hooks/RestaurantProvider';
 
 export const RestaurantsCategories: React.FC = () => {
-    const { restaurants, category, getRestaurantsByCategory, getRestaurants } =
-        useRestaurants();
+    const {
+        restaurants,
+        category,
+        getRestaurantsByCategory,
+        getRestaurants,
+        setCategory,
+    } = useRestaurants();
     const { id } = useParams();
 
     useEffect(() => {
@@ -39,7 +44,7 @@ export const RestaurantsCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`bares-e-restaurantes/${id}`} />
+                                <PillMap url="bares-e-restaurantes" />
                                 <Search
                                     placeHolderValue="Buscar Bares e Restaurantes"
                                     onSearch={handleSearch}
@@ -57,7 +62,8 @@ export const RestaurantsCategories: React.FC = () => {
                                 >
                                     <Card
                                         item={restaurant}
-                                        url={`/bares-e-restaurantes/${restaurant.id}`}
+                                        url="bares-e-restaurantes"
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

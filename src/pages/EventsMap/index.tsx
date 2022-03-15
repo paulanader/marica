@@ -6,7 +6,7 @@ import { Wrapper } from '../../components/Wrapper';
 import { useEvents } from '../../hooks/EventProvider';
 
 export const EventsMap: React.FC = () => {
-    const { events, getEvents } = useEvents();
+    const { events, getEvents, setCategory } = useEvents();
 
     useEffect(() => {
         getEvents('');
@@ -22,7 +22,8 @@ export const EventsMap: React.FC = () => {
                         <EventBigMap
                             items={events}
                             title="Eventos"
-                            url="/eventos"
+                            url="eventos"
+                            _setCategory={setCategory}
                         />
                     )}
                 </div>

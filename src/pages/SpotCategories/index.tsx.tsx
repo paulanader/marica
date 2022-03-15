@@ -12,7 +12,8 @@ import { Footer } from '../../components/Footer';
 import { Main } from '../../components/Main';
 
 export const SpotCategories: React.FC = () => {
-    const { spots, category, getSpotsByCategory, getSpots } = useSpots();
+    const { spots, category, getSpotsByCategory, getSpots, setCategory } =
+        useSpots();
     const { id } = useParams();
 
     useEffect(() => {
@@ -39,7 +40,7 @@ export const SpotCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`pontos-turisticos/${id}`} />
+                                <PillMap url="pontos-turisticos" />
                                 <Search
                                     placeHolderValue="Buscar pontos turísticos"
                                     onSearch={handleSearch}
@@ -57,7 +58,8 @@ export const SpotCategories: React.FC = () => {
                                 >
                                     <Card
                                         item={spot}
-                                        url={`/pontos-turisticos/${spot.id}`}
+                                        url="pontos-turisticos"
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

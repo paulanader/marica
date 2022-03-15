@@ -23,21 +23,24 @@ export const LocationInMap: React.FC<IGoogleMapProps> = ({ addresses }) => {
             <div className="mt-3">
                 <h2 className="ms-3 fs-5 fw-bold mb-3">Localização</h2>
                 <div style={{ height: '35vh', width: '100%' }} className="px-3">
-                    {addresses.map(address => (
-                        <GoogleMapReact
-                            key={address.id}
-                            bootstrapURLKeys={{
-                                key: `${process.env.REACT_APP_GOOGLE_KEY}`,
-                            }}
-                            defaultCenter={{
-                                lat: address.lat,
-                                lng: address.lng,
-                            }}
-                            defaultZoom={15}
-                        >
-                            <Marker lat={address.lat} lng={address.lng} />
-                        </GoogleMapReact>
-                    ))}
+                    <GoogleMapReact
+                        bootstrapURLKeys={{
+                            key: `${process.env.REACT_APP_GOOGLE_KEY}`,
+                        }}
+                        defaultCenter={{
+                            lat: addresses[0].lat,
+                            lng: addresses[0].lng,
+                        }}
+                        defaultZoom={15}
+                    >
+                        {addresses.map(address => (
+                            <Marker
+                                lat={address.lat}
+                                lng={address.lng}
+                                key={address.id}
+                            />
+                        ))}
+                    </GoogleMapReact>
                 </div>
             </div>
         </div>

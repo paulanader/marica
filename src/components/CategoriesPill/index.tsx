@@ -4,6 +4,7 @@ import { Pill } from '../Pill';
 interface ICategoriesProps {
     categories?: CategoryType[];
     url?: string;
+    page?: string;
     color?: string;
     text?: string;
     size?: number;

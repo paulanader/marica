@@ -11,7 +11,8 @@ import { Main } from '../../components/Main';
 import { useHotels } from '../../hooks/HotelProvider';
 
 export const HotelCategories: React.FC = () => {
-    const { hotels, category, getHotelsByCategory, getHotels } = useHotels();
+    const { hotels, category, getHotelsByCategory, getHotels, setCategory } =
+        useHotels();
     const { id } = useParams();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ export const HotelCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`hoteis-e-pousadas/${id}`} />
+                                <PillMap url="hoteis-e-pousadas" />
                                 <Search
                                     placeHolderValue="Buscar Hotéis e Pousadas"
                                     onSearch={handleSearch}
@@ -56,7 +57,8 @@ export const HotelCategories: React.FC = () => {
                                 >
                                     <Card
                                         item={hotel}
-                                        url={`/hoteis-e-pousadas/${hotel.id}`}
+                                        url="hoteis-e-pousadas"
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

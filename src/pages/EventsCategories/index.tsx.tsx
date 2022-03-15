@@ -11,7 +11,8 @@ import { useEvents } from '../../hooks/EventProvider';
 import { EventCard } from '../../components/EventCard';
 
 export const EventsCategories: React.FC = () => {
-    const { events, category, getEventsByCategory, getEvents } = useEvents();
+    const { events, category, getEventsByCategory, getEvents, setCategory } =
+        useEvents();
     const { id } = useParams();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ export const EventsCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`eventos/${id}`} />
+                                <PillMap url="eventos" />
                                 <Search
                                     placeHolderValue="Buscar Eventos"
                                     onSearch={handleSearch}
@@ -57,6 +58,7 @@ export const EventsCategories: React.FC = () => {
                                     <EventCard
                                         item={event}
                                         url={`/eventos/${event.id}`}
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

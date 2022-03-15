@@ -1,9 +1,9 @@
+import { CategoryType } from '../../@types/CategoryType';
 import { EventSpaceType } from '../../@types/EventSpaceType';
 import { HotelType } from '../../@types/HotelType';
 import { LocalMarketType } from '../../@types/LocalMarketType';
 import { RestaurantType } from '../../@types/RestaurantType';
 import { SpotType } from '../../@types/SpotType';
-import { useSpots } from '../../hooks/SpotProvider';
 import { CategoriesPill } from '../CategoriesPill';
 import { DeliveryPill } from '../DeliveryPill';
 import {
@@ -22,13 +22,17 @@ interface IDeliveryCardProps {
         | LocalMarketType
         | EventSpaceType;
     url: string;
+    _setCategory: (category: CategoryType) => void;
 }
 
-export const Card: React.FC<IDeliveryCardProps> = ({ item, url }) => {
-    const { setCategory } = useSpots();
+export const Card: React.FC<IDeliveryCardProps> = ({
+    item,
+    url,
+    _setCategory,
+}) => {
     return (
         <StylesCard className="card rounded rounded-top w-100">
-            <ImgageCardLink to={url}>
+            <ImgageCardLink to={`${item.id}`}>
                 <img
                     className="img-responsive"
                     src={item.capa}
@@ -37,7 +41,7 @@ export const Card: React.FC<IDeliveryCardProps> = ({ item, url }) => {
             </ImgageCardLink>
             <Margin className="card-body">
                 <h2 className="card-title fs-md mb-2 mt-0">
-                    <LinkDecoration to={url} className="fs-5">
+                    <LinkDecoration to={`${item.id}`} className="fs-5">
                         {item.nome}
                     </LinkDecoration>
                 </h2>
@@ -48,7 +52,7 @@ export const Card: React.FC<IDeliveryCardProps> = ({ item, url }) => {
                         url={url}
                         color="light"
                         text="secondary"
-                        _setCategory={setCategory}
+                        _setCategory={_setCategory}
                     />
                 </FontSizePillDecoration>
             </Margin>

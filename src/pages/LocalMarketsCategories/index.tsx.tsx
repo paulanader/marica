@@ -16,6 +16,7 @@ export const LocalMarketsCategories: React.FC = () => {
         category,
         getLocalMarketsByCategory,
         getLocalMarkets,
+        setCategory,
     } = useLocalMarkets();
     const { id } = useParams();
 
@@ -43,7 +44,7 @@ export const LocalMarketsCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`comercio-local/${id}`} />
+                                <PillMap url="comercio-local" />
                                 <Search
                                     placeHolderValue="Buscar Comércio Local"
                                     onSearch={handleSearch}
@@ -61,7 +62,8 @@ export const LocalMarketsCategories: React.FC = () => {
                                 >
                                     <Card
                                         item={localMarket}
-                                        url={`/comercio-local/${localMarket.id}`}
+                                        url="comercio-local"
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

@@ -11,8 +11,13 @@ import { Main } from '../../components/Main';
 import { useEventSpaces } from '../../hooks/EventSpaceProvider';
 
 export const EventSpacesCategories: React.FC = () => {
-    const { eventSpaces, category, getEventSpacesByCategory, getEventSpaces } =
-        useEventSpaces();
+    const {
+        eventSpaces,
+        category,
+        getEventSpacesByCategory,
+        getEventSpaces,
+        setCategory,
+    } = useEventSpaces();
     const { id } = useParams();
 
     useEffect(() => {
@@ -39,7 +44,7 @@ export const EventSpacesCategories: React.FC = () => {
                                 />
                             </div>
                             <div className="col d-flex">
-                                <PillMap url={`espacos-para-eventos/${id}`} />
+                                <PillMap url="espacos-para-eventos" />
                                 <Search
                                     placeHolderValue="Buscar Espaço para Eventos"
                                     onSearch={handleSearch}
@@ -57,7 +62,8 @@ export const EventSpacesCategories: React.FC = () => {
                                 >
                                     <Card
                                         item={eventSpace}
-                                        url={`/espacos-para-eventos/${eventSpace.id}`}
+                                        url="espacos-para-eventos"
+                                        _setCategory={setCategory}
                                     />
                                 </div>
                             );

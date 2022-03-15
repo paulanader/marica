@@ -6,7 +6,7 @@ import { Wrapper } from '../../components/Wrapper';
 import { useEventSpaces } from '../../hooks/EventSpaceProvider';
 
 export const EventSpacesMap: React.FC = () => {
-    const { eventSpaces, getEventSpaces } = useEventSpaces();
+    const { eventSpaces, getEventSpaces, setCategory } = useEventSpaces();
 
     useEffect(() => {
         getEventSpaces('');
@@ -22,7 +22,8 @@ export const EventSpacesMap: React.FC = () => {
                         <BigMap
                             items={eventSpaces}
                             title="Espaço para eventos"
-                            url="/espaco-para-eventos"
+                            url="espaco-para-eventos"
+                            _setCategory={setCategory}
                         />
                     )}
                 </div>

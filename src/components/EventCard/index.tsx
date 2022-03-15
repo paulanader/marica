@@ -1,18 +1,21 @@
 /* eslint-disable camelcase */
 
+import { CategoryType } from '../../@types/CategoryType';
 import { EventType } from '../../@types/EventType';
-import { useEvents } from '../../hooks/EventProvider';
 import { CategoriesPill } from '../CategoriesPill';
 import { ImgageCardLink, LinkDecoration, Margin, StylesCard } from './styles';
 
 interface IEventCardProps {
     item: EventType;
     url: string;
+    _setCategory: (category: CategoryType) => void;
 }
 
-export const EventCard: React.FC<IEventCardProps> = ({ item, url }) => {
-    const { setCategory } = useEvents();
-
+export const EventCard: React.FC<IEventCardProps> = ({
+    item,
+    url,
+    _setCategory,
+}) => {
     const datahora_inicio_original = item.datahora_inicio.split(' ');
     const data = datahora_inicio_original[0].split('-');
     const arrayMonth = [
@@ -59,7 +62,7 @@ export const EventCard: React.FC<IEventCardProps> = ({ item, url }) => {
                         url="eventos"
                         color="light"
                         text="dark"
-                        _setCategory={setCategory}
+                        _setCategory={_setCategory}
                     />
                 </Margin>
             </div>

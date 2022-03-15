@@ -2,6 +2,7 @@
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react';
 import { ImLocation } from 'react-icons/im';
+import { CategoryType } from '../../@types/CategoryType';
 import { EventSpaceType } from '../../@types/EventSpaceType';
 import { HotelType } from '../../@types/HotelType';
 import { LocalMarketType } from '../../@types/LocalMarketType';
@@ -28,19 +29,21 @@ interface IMarkerProps {
     showCard: boolean;
     onPinClick: () => void;
     url: string;
+    _setCategory: (category: CategoryType) => void;
 }
 
 export const Marker: React.FC<IMarkerProps> = ({
     item,
     showCard,
-    onPinClick,
     url,
+    onPinClick,
+    _setCategory,
 }) => {
     return (
         <WrapperMarker>
             {showCard && (
                 <CardStyles>
-                    <Card item={item} url={`/${url}/${item.id}`} />
+                    <Card item={item} url={url} _setCategory={_setCategory} />
                 </CardStyles>
             )}
             <StylesMarker type="button" onClick={onPinClick}>
@@ -59,19 +62,21 @@ interface ILocationInBigMapProps {
         | LocalMarketType[];
     title: string;
     url: string;
+    _setCategory: (category: CategoryType) => void;
 }
 
 export const BigMap: React.FC<ILocationInBigMapProps> = ({
     items,
     title,
     url,
+    _setCategory,
 }) => {
     const [activeAddress, setActiveAddress] = useState<number | null>(null);
 
     return (
         <div>
             <PageTitleStyles className="align-items-center">
-                <PageTitle title2={title} url={url} />
+                <PageTitle title2={title} url={`/${url}`} />
             </PageTitleStyles>
             <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
@@ -94,6 +99,7 @@ export const BigMap: React.FC<ILocationInBigMapProps> = ({
                                 key={address.id}
                                 item={item}
                                 url={url}
+                                _setCategory={_setCategory}
                                 showCard={address.id === activeAddress}
                                 onPinClick={() =>
                                     setActiveAddress(

@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <BsFacebook />
-                                    <span className="d-none d-md-inline mx-1">
+                                    <span className="d-none d-lg-inline mx-1">
                                         Facebook
                                     </span>
                                 </a>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <BsInstagram />
-                                    <span className="d-none d-md-inline mx-1">
+                                    <span className="d-none d-lg-inline mx-1">
                                         Instagram
                                     </span>
                                 </a>
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <BsTwitter />
-                                    <span className="d-none d-md-inline mx-1">
+                                    <span className="d-none d-lg-inline mx-1">
                                         Twitter
                                     </span>
                                 </a>
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <BsYoutube />
-                                    <span className="d-none d-md-inline mx-1">
+                                    <span className="d-none d-lg-inline mx-1">
                                         Youtube
                                     </span>
                                 </a>
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
                             <div className="text-center text-xl-left">
                                 <a
                                     className="text-white underline"
-                                    href="https://app.marica2030.com.br"
+                                    href="https://app.marica2030.com.br/login"
                                     title="Área do comerciante"
                                     target="_blank"
                                     rel="noopener noreferrer"

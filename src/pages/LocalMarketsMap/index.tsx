@@ -6,7 +6,7 @@ import { Wrapper } from '../../components/Wrapper';
 import { useLocalMarkets } from '../../hooks/LocalMarketsProvider';
 
 export const LocalMarketsMap: React.FC = () => {
-    const { localMarkets, getLocalMarkets } = useLocalMarkets();
+    const { localMarkets, getLocalMarkets, setCategory } = useLocalMarkets();
 
     useEffect(() => {
         getLocalMarkets('');
@@ -22,7 +22,8 @@ export const LocalMarketsMap: React.FC = () => {
                         <BigMap
                             items={localMarkets}
                             title="Comércio Local"
-                            url="/comercio-local"
+                            url="comercio-local"
+                            _setCategory={setCategory}
                         />
                     )}
                 </div>

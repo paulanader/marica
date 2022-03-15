@@ -67,7 +67,8 @@ export const EventSpaces: React.FC = () => {
                                         >
                                             <Card
                                                 item={eventSpace}
-                                                url={`/espacos-para-eventos/${eventSpace.id}`}
+                                                url="espacos-para-eventos"
+                                                _setCategory={setCategory}
                                             />
                                         </div>
                                     );

@@ -17,6 +17,7 @@ export const Spots: React.FC = () => {
 
     useEffect(() => {
         getSpots('');
+        window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -64,7 +65,8 @@ export const Spots: React.FC = () => {
                                         >
                                             <Card
                                                 item={spot}
-                                                url={`/pontos-turisticos/${spot.id}`}
+                                                url="hoteis-e-pousadas"
+                                                _setCategory={setCategory}
                                             />
                                         </div>
                                     );

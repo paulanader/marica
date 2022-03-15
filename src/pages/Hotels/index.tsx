@@ -60,7 +60,8 @@ export const Hotels: React.FC = () => {
                                         >
                                             <Card
                                                 item={hotel}
-                                                url={`/hoteis-e-pousadas/${hotel.id}`}
+                                                url="hoteis-e-pousadas"
+                                                _setCategory={setCategory}
                                             />
                                         </div>
                                     );
