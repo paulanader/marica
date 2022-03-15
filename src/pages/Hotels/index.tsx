@@ -17,6 +17,7 @@ export const Hotels: React.FC = () => {
 
     useEffect(() => {
         getHotels('');
+        window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const handleSearch = useCallback((searchText: string): void => {
