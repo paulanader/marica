@@ -5,6 +5,7 @@ export const CardStyles = styled.div`
     position: absolute;
     bottom: 75px;
     transform: translateX(-50%);
+    z-index: 1;
 
     &:after {
         content: '';
