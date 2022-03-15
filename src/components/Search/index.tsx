@@ -23,7 +23,7 @@ export const Search: React.FC<ISearchProps> = ({
     );
     return (
         <div className="container">
-            <div className="row justify-content-end">
+            <div className="row justify-content-end flex-grow-1">
                 <div className="col-9 offset-9 py-4 px-2 w-100">
                     <Radius className="border border-secondary">
                         <div className="input-group w-100">

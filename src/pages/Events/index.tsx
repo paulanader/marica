@@ -52,7 +52,7 @@ export const Events: React.FC = () => {
                             size={6}
                         />
                     )}
-                    <div className="row row-cols-3">
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                         {!isLoading &&
                             events.map(event => {
                                 return (

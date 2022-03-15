@@ -20,7 +20,7 @@ import { Events } from '../pages/Events';
 import { Event } from '../pages/Event';
 import { LocalMarketsCategories } from '../pages/LocalMarketsCategories/index.tsx';
 import { EventSpacesCategories } from '../pages/EventSpacesCategories/index.tsx';
-import { EventsCategories } from '../pages/EventsCategories/index.tsx';
+import { EventsCategories } from '../pages/EventsCategories';
 import { HotelsMap } from '../pages/HotelsMap';
 import { EventSpacesMap } from '../pages/EventSpacesMap';
 import { RestaurantsMap } from '../pages/RestaurantsMap';
