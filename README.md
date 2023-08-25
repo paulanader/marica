@@ -1,4 +1,4 @@
-Demonstração: https://paulanader-marica.netlify.app/
+Demo: https://paulanader-marica.netlify.app/
 
 Tecnologias ReactJS (Typescript) Instalação Pré-requisitos:
 
